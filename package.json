@@ -1,11 +1,12 @@
 {
-  "name": "george",
+  "name": "vscode-george",
   "displayName": "George",
   "description": "TVPaint's George scripting language support for Visual Studio Code",
   "author": {
     "name": "Joseph HENRY"
   },
-  "icon": "./icons/george.png",
+  "publisher": "johhnry",
+  "icon": "icons/george.png",
   "license": "MIT",
   "repository": {
     "type": "git",

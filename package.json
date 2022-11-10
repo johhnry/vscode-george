@@ -46,7 +46,7 @@
           ".grg"
         ],
         "icon": {
-          "light": "./icons/georgepng",
+          "light": "./icons/george.png",
           "dark": "./icons/george.png"
         },
         "configuration": "./language-configuration.json"

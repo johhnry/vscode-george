@@ -1,0 +1,62 @@
+{
+  "name": "george",
+  "displayName": "George",
+  "description": "TVPaint's George scripting language support for Visual Studio Code",
+  "author": {
+    "name": "Joseph HENRY"
+  },
+  "icon": "./icons/george.png",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/johhnry/vscode-george"
+  },
+  "bugs": {
+    "url": "https://github.com/johhnry/vscode-george/issues"
+  },
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.73.0"
+  },
+  "galleryBanner": {
+    "color": "#242424",
+    "theme": "dark"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "keywords": [
+    "tvpaint",
+    "tv",
+    "george",
+    "highlighter",
+    "syntax-highlighter",
+    "grg"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "george",
+        "aliases": [
+          "George",
+          "george"
+        ],
+        "extensions": [
+          ".grg"
+        ],
+        "icon": {
+          "light": "./icons/georgepng",
+          "dark": "./icons/george.png"
+        },
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "george",
+        "scopeName": "source.grg",
+        "path": "./syntaxes/george.tmLanguage.json"
+      }
+    ]
+  }
+}

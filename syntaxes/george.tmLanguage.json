@@ -1,0 +1,207 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "George",
+	"patterns": [
+		{
+			"include": "#all"
+		}
+	],
+	"repository": {
+		"all": {
+			"patterns": [
+				{
+					"include": "#comments"
+				},
+				{
+					"include": "#keywords"
+				},
+				{
+					"include": "#strings"
+				},
+				{
+					"include": "#function"
+				},
+				{
+					"include": "#language-function-call"
+				},
+				{
+					"include": "#language-instruction-call"
+				},
+				{
+					"include": "#function-call"
+				},
+				{
+					"include": "#constants"
+				}
+			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line.double-slash",
+					"begin": "//",
+					"end": "$"
+				}
+			]
+		},
+		"parameters": {
+			"name": "meta.parameters",
+			"begin": "\\(",
+			"beginCaptures": {
+				"0": {
+					"name": "punctuation.definition.parameters.begin"
+				}
+			},
+			"end": "\\)",
+			"endCaptures": {
+				"0": {
+					"name": "punctuation.definition.parameters.end"
+				}
+			},
+			"patterns": [
+				{
+					"name": "punctuation.separator.parameter",
+					"match": ","
+				},
+				{
+					"name": "variable.parameter",
+					"match": "[a-zA-Z_]+"
+				}
+			]
+		},
+		"function-name": {
+			"name": "meta.function.name",
+			"begin": "(?i)(\\bfunction\\b)\\s+([a-zA-Z_]+)\\s*",
+			"end": "\\s*$",
+			"beginCaptures": {
+				"0": {
+					"name": "entity.name.function"
+				},
+				"1": {
+					"name": "keyword.control"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#parameters"
+				}
+			],
+			"endCaptures": {
+				"0": {
+					"name": "keyword.control.function-end"
+				}
+			}
+		},
+		"function": {
+			"name": "meta.function",
+			"begin": "(?i)(?=\\bfunction\\b\\s+[a-zA-Z_]+\\s*)",
+			"end": "(?i)\\bend\\b\\s*$",
+			"endCaptures": {
+				"0": {
+					"name": "keyword.control.function-end"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#function-name"
+				},
+				{
+					"include": "#all"
+				}
+			]
+		},
+		"function-call": {
+			"begin": "[a-zA-Z_]+\\s*(?=\\()",
+			"end": "(?<=\\))",
+			"beginCaptures": {
+				"0": {
+					"name": "meta.function-call entity.name.function"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#all"
+				}
+			]
+		},
+		"language-function-call": {
+			"begin": "(?i)#?(LEN|CMP|CHAR|CUT|PRINT|CONCAT)\\s*(?=\\()",
+			"end": "(?<=\\))",
+			"beginCaptures": {
+				"1": {
+					"name": "meta.function-call support.function"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#all"
+				}
+			]
+		},
+		"language-instruction-call": {
+			"begin": "(?i)\\b((tv_[a-zA-Z]+)|#?(PRINT|PARAM|PARSE))\\b",
+			"end": "$",
+			"beginCaptures": {
+				"1": {
+					"name": "meta.function-call support.function"
+				}
+			},
+			"patterns": [
+				{
+					"include": "#all"
+				}
+			]
+		},
+		"constants": {
+			"patterns": [
+				{
+					"name": "constant.numeric",
+					"match": "\\b[0-9]+(\\.[0-9]*)?\\b"
+				}
+			]
+		},
+		"strings": {
+			"patterns": [
+				{
+					"name": "string.quoted.double",
+					"begin": "\"",
+					"end": "\""
+				},
+				{
+					"name": "string.quoted.single",
+					"begin": "'",
+					"end": "'"
+				}
+			]
+		},
+		"keywords": {
+			"patterns": [
+				{
+					"name": "keyword.operator.assignment",
+					"match": "="
+				},
+				{
+					"name": "keyword.operator.comparison",
+					"match": "!=|>|<|<=|>=|=="
+				},
+				{
+					"name": "keyword.operator.logical",
+					"match": "&&|\\|\\|"
+				},
+				{
+					"name": "keyword.operator.arithmetic",
+					"match": "-|\\*\\*|\\*|/|\\+"
+				},
+				{
+					"name": "keyword.control",
+					"match": "(?i)(\\b(LOCAL|WHILE|IF|ELSE|RETURN|DO|UNTIL|END|EXIT|FUNCTION|FOR|STEP|TO)\\b)"
+				},
+				{
+					"name": "keyword.control.directive",
+					"match": "#[A-Z]+"
+				}
+			]
+		}
+	},
+	"scopeName": "source.grg"
+}

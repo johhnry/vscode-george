@@ -139,7 +139,7 @@
 			]
 		},
 		"language-instruction-call": {
-			"begin": "(?i)\\b((tv_[a-zA-Z]+)|#?(PRINT|PARAM|PARSE))\\b",
+			"begin": "(?i)\\b((tv_[a-zA-Z0-9]+)|#?(PRINT|PARAM|PARSE))\\b",
 			"end": "$",
 			"beginCaptures": {
 				"1": {

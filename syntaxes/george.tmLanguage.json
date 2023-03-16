@@ -125,7 +125,7 @@
 			]
 		},
 		"language-function-call": {
-			"begin": "(?i)#?(LEN|CMP|CHAR|CUT|PRINT|CONCAT)\\s*(?=\\()",
+			"begin": "(?i)#?(LEN|CMP|CHAR|CUT|PRINT|CONCAT|ABS|ACOS|ASIN|ATAN|COS|DATE)\\s*(?=\\()",
 			"end": "(?<=\\))",
 			"beginCaptures": {
 				"1": {
